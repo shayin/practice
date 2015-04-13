@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <!DOCTYPE html>
+    <html ng-app="ngAppDemo">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>第六章：链接与图片模板</title>
+        <script src="lib/jquery-1.11.2.min.js"></script>
+        <script src="lib/bootstrap.min.js"></script>
+        <script src="lib/angular.min.js"></script>
+        <script src="js/chapters6.js"></script>
+    </head>
+    <body ng-controller="PhoneListCtrl">
+    Search: <input ng-model="query">
+    Sort by:
+    <select ng-model="orderProp">                //使用ngSrc指令防止浏览器产生一个指向非法地址的请求,因为ngjs是在页面载入完毕之后才发现编译
+        <option value="name">name</option>
+        <option value="age">age</option>
+    </select>
+
+    <ul>
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+            <a href="#/phones/{{phone.id}}"><img ng-src="{{phone.imageUrl}}"></a>
+            <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+            <p>{{phone.snippet}}</p>
+        </li>
+    </ul>
+    </body>
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

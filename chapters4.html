@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="ngAppDemo">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>第四章：双向绑定</title>
+    <script src="lib/jquery-1.11.2.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="js/chapters4.js"></script>
+</head>
+<body ng-controller="PhoneListCtrl">
+    Search: <input ng-model="query">
+    Sort by:
+    <select ng-model="orderProp">                                     //在select元素和orderProp模型之间创建一个双向绑定，随后orderProp会被作为orderBy过滤器的输入（数据模型发生了改变，视图改变）
+        <option value="name">name</option>
+        <option value="age">age</option>
+    </select>
+
+    <ul class="phones">
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+            {{phone.name}}
+            <p>{{phone.snippet}}</p>
+        </li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
